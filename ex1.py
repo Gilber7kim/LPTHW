@@ -1,3 +1,7 @@
 print "Hello World"
-print "hello there"
-print "Aoi Yu"
+print "Hello Again"
+print "i like typing this."
+print "This is fun."
+print 'Yay! Printing.'
+print "I'd much rather you 'not'."
+print 'I "said: do not touch this.'

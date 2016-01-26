@@ -39,8 +39,8 @@ def dice():
     print("Win me with the dice.")
     print("You should have a higher number than three.")
     raw_input("Enter to continue")
-    number = random.randint (1,6)
-    if number==1:
+    number = random.randint (1, 6)
+    if number == 1:
         print ("[----------------]")
         print ("[----------------]")
         print ("[-------()-------]")
@@ -48,7 +48,7 @@ def dice():
         print ("[----------------]")
         print("Jump out.")
         exit(0)
-    if number==2:
+    if number == 2:
         print ("[----------------]")
         print ("[----------------]")
         print ("[--()--------()--]")
@@ -56,7 +56,7 @@ def dice():
         print ("[----------------]")
         print("Loser.")
         exit(0)
-    if number==3:
+    if number == 3:
         print ("[-()-------------]")
         print ("[----------------]")
         print ("[-------()-------]")
@@ -64,7 +64,7 @@ def dice():
         print ("[-------------()-]")
         print("That was close, dude.")
         exit(0)
-    if number==4:
+    if number == 4:
         print ("[-()----------()-]")
         print ("[----------------]")
         print ("[----------------]")
@@ -72,7 +72,7 @@ def dice():
         print ("[-()----------()-]")
         print("You're pretty lucky.")
         next_step()
-    if number==5:
+    if number == 5:
         print ("[-()----------()-]")
         print ("[----------------]")
         print ("[-------()-------]")
@@ -80,7 +80,7 @@ def dice():
         print ("[-()----------()-]")
         print("Congrats!")
         next_step()
-    if number==6:
+    if number == 6:
         print ("[-()----------()-]")
         print ("[----------------]")
         print ("[-()----------()-]")
@@ -95,31 +95,31 @@ def next_step():
     print("You have to get the right answer for this multiple-choice question.")
     print("You stayed up all night playing video game. And now, you are in Pastor Johnson's class.")
     print("What should you do?")
-    print("1) sleep")
-    print("2) stand up to get rid of sleepiness")
-    print("3) shout")
-    print("4) ask for permission to go to the toilet")
-    print("Just gimme a number.")
+    print("a. sleep")
+    print("b. stand up to get rid of sleepiness")
+    print("c. shout")
+    print("d. ask for permission to go to the toilet")
+    print("Gimme an alphabet you think it's the answer.")
     choice = raw_input("> ")
 
-    if raw_input == "1":
+    if choice == "a":
         print("OH MAN! No one can sleep in my class!")
         print("Game Over")
         exit(0)
-    elif raw_input == "2":
+    elif choice == "b":
         print("This is not a Montesory-bang! Sit down!")
         print("Game Over")
         exit(0)
-    elif raw_input == "3":
+    elif choice == "c":
         print("Well done. You got rid of your exhaustion, and Paul was caught instead of you.")
         print("All Clear")
         exit(0)
-    elif raw_input == "4":
+    elif choice == "d":
         print("What did you do in the lunch time? No!")
         print("Game Over")
         exit(0)
     else:
-        print("Number, Please.")
+        print("alphabet, Please.")
         exit(0)
 
 selfIntroduce()

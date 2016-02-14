@@ -19,7 +19,7 @@ class Engine(object):
 
     def play(self):
         current_scene = self.scene_map.opening_scene()
-        last_scene = self.scene_map.next_scene('finished')
+        last_scene = self.scene_map.next_scene('ending')
 
         while current_scene != last_scene:
             next_scene_name = current_scene.enter()
@@ -34,13 +34,11 @@ class Death(Scene):
          "You failed to survive.",
          "I think you needed some more skill to play this",
          "Beinging such a coward.",
-         "Well basically you suck."
-     ]
+         "Well basically you suck."]
 
     def enter(self):
         print Death.gg[randint(0, len(self.gg)-1)]
         exit(1)
-
 
 
 class CentralCorridor(Scene):
@@ -79,6 +77,7 @@ class CentralCorridor(Scene):
             print "to play this game."
             exit(0)
 
+
 class LaserWeaponArmory(Scene):
 
     def enter(self):
@@ -91,7 +90,7 @@ class LaserWeaponArmory(Scene):
         print("In order to shoot, You hold up the gun.")
         print("Whether it is a weapon or a toy will be depend on your luck.")
         raw_input("Press Enter to check your luck")
-        number = random.randint (1, 6)
+        number = random.randint(1, 6)
         if number == 1:
             print("Bad luck. You shot the bb gun.")
             print("You're arrested by the soldiers.")
@@ -118,6 +117,7 @@ class LaserWeaponArmory(Scene):
             print("Pew!")
             print("You chose a laser gun. You killed all the soldiers")
             return 'The Bridge'
+
 
 class TheBridge(Scene):
 
@@ -149,6 +149,7 @@ class TheBridge(Scene):
             print "to play this game."
             exit(0)
 
+
 class EscapePod(Scene):
 
     def enter(self):
@@ -169,22 +170,41 @@ class EscapePod(Scene):
             print "You've rode a ship to Netherland."
             print "Your family is waiting for you."
             print "Happy Ending"
-            exit(0)
+            return 'ending'
         elif c == 3:
             print "The ship you rode sank in the middle of the sea."
             return 'Death'
 
+
+class Ending():
+
+    def enter(self):
+        print "Good work!"
+        return 'ending'
+
+
 class Map(object):
 
+        # attribute lowercased with underscores
+    scenes = {
+        'central_corridor': CentralCorridor(),
+        'laser_weapon_armory': LaserWeaponArmory(),
+        'the_bridge': TheBridge(),
+        'escape_pod': EscapePod(),
+        'death': Death(),
+        'ending': Ending()
+
+    }
+
     def __init__(self, start_scene):
-        pass
+        self.start_scene = start_scene
 
     def next_scene(self, scene_name):
-        pass
+        ret = Map.scenes.get(scene_name)
+        return ret
 
     def opening_scene(self):
-        pass
-
+        return self.next_scene(self.start_scene)
 
 a_map = Map('central_corridor')
 a_game = Engine(a_map)
